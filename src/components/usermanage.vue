@@ -110,6 +110,44 @@
       </el-col>
     </el-row>
     
+    <el-dialog title="用户信息" :visible.sync="dialogFormVisible">
+      <el-form :model="editForm">
+        <el-form-item 
+          label="用户名"
+          :label-width="formLabelWidth"
+          prop="name"
+          :rules="[
+            { required: true, message: '用户名不能为空'},
+          ]">
+          <el-input v-model="editForm.name" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item 
+          label="年龄"
+          :label-width="formLabelWidth"
+          prop="age"
+          :rules="[
+            { required: true, message: '年龄不能为空'},
+            { type: 'number', message: '年龄必须为数字值'}
+          ]">
+          <el-input type="age" v-model.number="editForm.age" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item 
+          label="邮箱"
+          :label-width="formLabelWidth"
+          prop="email"
+          :rules="[
+            { required: true, message: '邮箱不能为空'},
+            { type: 'email', message: '邮箱必须为xx@xx.com格式'}
+          ]">
+          <el-input v-model.email="editForm.email" auto-complete="off"></el-input>
+        </el-form-item>
+        
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="cancelhandle">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -120,10 +158,23 @@ export default {
   data () {
     return {
       form: {
-        name: '',
         age: '',
+        name: '',
         email: '',
       },
+      editForm: {
+        age: '',
+        name: '',
+        email: '',
+      },
+      editFormClone: {
+        age: '',
+        name: '',
+        email: '',
+      },
+      formLabelWidth: '80px',
+      dialogTableVisible: false,
+      dialogFormVisible: false,
       successShow: false,
       errorShow: false,
       deleteShow: false,
@@ -179,6 +230,14 @@ export default {
     },
     handleEdit(index, row) {
       console.log(index, row);
+      this.$data.editFormClone = this.$data.tableData[index];
+      this.$data.editForm = this.$data.tableData[index];
+      this.$data.dialogFormVisible = true;
+    },
+    cancelhandle() {
+      console.log(this.$data.editFormClone);
+      this.$data.editForm = this.$data.editFormClone;
+      this.$data.dialogFormVisible = false;
     },
     handleDelete(index, row) {
       var self = this;
@@ -241,6 +300,6 @@ export default {
   line-height: 36px;
 }
 .el-table th {
-  text-align: center;
+  text-align: center!important;
 }
 </style>
