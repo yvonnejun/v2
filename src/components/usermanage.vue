@@ -5,29 +5,68 @@
     <el-row>
       <el-col :span="24">
         <h2>添加用户</h2>
-        <el-form ref="form" :model="form" label-width="80px">
-            <el-form-item label="用户名">
-              <el-input v-model="form.name"></el-input>
+        <el-form ref="form" :model="form" label-width="80px" label-position="right">
+            <el-form-item 
+              label="用户名"
+              prop="name"
+              :rules="[
+                { required: true, message: '用户名不能为空'},
+              ]"
+            >
+              <el-input v-model="form.name" ></el-input>
             </el-form-item>
-            <el-form-item label="年龄">
-              <el-input v-model="form.age"></el-input>
+            <el-form-item 
+              label="年龄"
+              prop="age"
+              :rules="[
+                { required: true, message: '年龄不能为空'},
+                { type: 'number', message: '年龄必须为数字值'}
+              ]"
+            >
+              <el-input type="age" v-model.number="form.age" auto-complete="off"></el-input>
             </el-form-item>
-            <el-form-item label="邮箱">
-              <el-input v-model="form.email"></el-input>
+            <el-form-item 
+              label="邮箱"
+              prop="email"
+              :rules="[
+                { required: true, message: '邮箱不能为空'},
+                { type: 'email', message: '邮箱必须为xx@xx.com格式'}
+              ]"
+            >
+              <el-input v-model.email="form.email" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="onSubmit">添加用户</el-button>
-              <el-button>取消</el-button>
+              <el-button type="primary" @click="onSubmit('form')">添加用户</el-button>
+              <el-button @click="resetForm('form')">取消</el-button>
             </el-form-item>
         </el-form>
         <el-alert
-          title="成功提交"
+          title="添加成功"
           class="success-alert"
           type="success"
           show-icon
-          v-if="form.successShow"
-          :class="{'slidedown': form.successShow}">
+          v-if="successShow"
+          :class="{'slidedown': successShow}">
         </el-alert>
+       
+        <el-alert
+          title="添加失败"
+          class="success-alert"
+          type="error"
+          show-icon
+          v-if="errorShow"
+          :class="{'slidedown': errorShow}">
+        </el-alert>
+
+         <el-alert
+          title="删除成功"
+          class="success-alert"
+          type="success"
+          show-icon
+          v-if="deleteShow"
+          :class="{'slidedown': deleteShow}">
+        </el-alert>
+
       </el-col>
     </el-row>
     <el-row>
@@ -82,15 +121,12 @@ export default {
     return {
       form: {
         name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        successShow: false,
-        desc: ''
+        age: '',
+        email: '',
       },
+      successShow: false,
+      errorShow: false,
+      deleteShow: false,
       tableData: [{
           age: '25',
           name: '王小虎',
@@ -111,20 +147,48 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
+    onSubmit(formName) {
       that = this; 
       console.log('submit!');
-      this.$data.form.successShow = true;
-      setTimeout(function () {
-        that.$data.form.successShow = false;
-        console.log('hide');
-      }, 2000);
+      
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          // alert('提交成功!');
+          this.$data.tableData.push({
+              age: this.$data.form.age,
+              name: this.$data.form.name,
+              email: this.$data.form.email
+          });
+          this.$data.successShow = true;
+          setTimeout(function () {
+            that.$data.successShow = false;
+          }, 2000);
+        } else {
+          this.$data.errorShow = true;
+          setTimeout(function () {
+            that.$data.errorShow = false;
+          }, 2000);
+          console.log('error submit!!');
+          return false;
+        }
+      });
+     
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
     },
     handleEdit(index, row) {
       console.log(index, row);
     },
     handleDelete(index, row) {
+      var self = this;
       console.log(index, row);
+      this.$data.tableData.splice(index, 1);
+      this.$data.deleteShow = true;
+      setTimeout(function () {
+        self.$data.deleteShow = false;
+      }, 2000);
+
     }
   }
 }
