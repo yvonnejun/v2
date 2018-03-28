@@ -7,6 +7,7 @@ import elementlayout from '@/components/elementlayout'
 import elementlayout2 from '@/components/elementlayout2'
 import buildtable from '@/components/buildtable'
 import usermanage from '@/components/usermanage'
+import events from '@/components/events'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/usermanage',
       name: 'usermanage',
       component: usermanage
+    },
+    {
+      path: '/events',
+      name: 'events',
+      component: events
     },
   ]
 })
