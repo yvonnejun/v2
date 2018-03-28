@@ -5,8 +5,10 @@
     <el-row>
       <el-col :span="24">
         <h2>事件</h2>
-        
-        <el-button type="primary" icon="el-icon-edit"></el-button>
+        <!-- 获取事件对象$event传参 -->
+        <el-button type="primary" icon="el-icon-edit" @click="handleEdit($event)">点击我</el-button>
+
+
         <el-button type="primary" icon="el-icon-share"></el-button>
         <el-button type="primary" icon="el-icon-delete"></el-button>
         <el-button type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button>
@@ -16,6 +18,19 @@
           </div>
           <el-button type="primary" icon="el-icon-search" @click="ShowSearch()">搜索</el-button>
         </el-col>
+        <el-col :span="12">
+          <div>
+            <el-form ref="form" :model="form" label-width="80px">
+              <el-form-item label="用户名">
+                <el-input v-model="form.username" @change="showName($event)"></el-input>
+              </el-form-item>
+            </el-form>
+          </div>
+          <el-button type="primary" icon="el-icon-search" @click="ShowSearch()">搜索</el-button>
+        </el-col>
+        <div @click="handleParent" class="styleParent">
+          <a class="styleChild" href="#" @click.stop.prevent="handleChildren">我是子元素</a>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -28,7 +43,8 @@ export default {
      /*data和return之间的地方--就是这里可以写一些内部方法供return里面的属性赋值调用*/
     return {
         form: {
-          input1: ''
+          input1: '',
+          username: ''
         },
         flagShowSearch: false,
         searchStyle: {searchWrapHide: !this.flagShowSearch, searchWrap: this.flagShowSearch},
@@ -40,6 +56,29 @@ export default {
       this.searchStyle = {
         searchWrapHide: !this.flagShowSearch, searchWrap: this.flagShowSearch
       }
+    },
+    handleEdit(event) {
+      console.log(event.target);
+      console.log(event.type);
+      console.log(event.offsetX);
+      console.log(event.offsetY);
+    },
+    handleParent() {
+       this.$message({
+          dangerouslyUseHTMLString: true,
+          message: '<strong>这是 <i>HTML</i> 片段</strong>'
+       });
+    },
+    handleChildren() {
+      this.$message({
+          message: '警告哦，这是一条警告消息',
+          type: 'warning'
+      });
+    },
+    showName(event) {
+      console.log(event.target);
+      console.log(event);
+      // debugger
     }
   }
 }
@@ -102,5 +141,18 @@ export default {
   width: 120px;
   position:relative;
   left:5px;
+}
+.styleChild {
+  display: block;
+  width: 90px;
+  height: 20px;
+  background: orange;
+  border-radius: 6px;
+  border: 1px solid olive;
+}
+.styleParent {
+ width: 240px;
+ height: 60px;
+ background: orange;
 }
 </style>
