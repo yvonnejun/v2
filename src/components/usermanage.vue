@@ -152,7 +152,9 @@
 </template>
 
 <script>
-var that;
+var that,
+    rowIndex = -1,
+    editFormClone = {};
 export default { 
   name: 'usermanage',
   data () {
@@ -167,34 +169,13 @@ export default {
         name: '',
         email: '',
       },
-      editFormClone: {
-        age: '',
-        name: '',
-        email: '',
-      },
       formLabelWidth: '80px',
       dialogTableVisible: false,
       dialogFormVisible: false,
       successShow: false,
       errorShow: false,
       deleteShow: false,
-      tableData: [{
-          age: '25',
-          name: '王小虎',
-          email: '962308611@qq.com'
-        }, {
-          age: '25',
-          name: '王小虎',
-          email: '962308611@qq.com'
-        }, {
-          age: '25',
-          name: '王小虎',
-          email: '962308611@qq.com'
-        }, {
-          age: '25',
-          name: '王小虎',
-          email: '962308611@qq.com'
-        }]
+      tableData: []
     }
   },
   methods: {
@@ -230,13 +211,17 @@ export default {
     },
     handleEdit(index, row) {
       console.log(index, row);
-      this.$data.editFormClone = this.$data.tableData[index];
+      editFormClone = Object.assign({}, this.$data.tableData[index]); // Object.assign原生js的浅拷贝方法--至少做到了拷贝后的数据不会随着双绑的数据改变而改变
+      
       this.$data.editForm = this.$data.tableData[index];
+      rowIndex = index;
       this.$data.dialogFormVisible = true;
     },
     cancelhandle() {
-      console.log(this.$data.editFormClone);
-      this.$data.editForm = this.$data.editFormClone;
+      console.log(editFormClone);
+      this.$data.tableData[rowIndex] = editFormClone; // 全局传递索引的rowIndex来控制数据对象的选取，并重新赋值
+      console.log(this.$data.tableData[rowIndex]);
+      // this.$data.form = editFormClone;
       this.$data.dialogFormVisible = false;
     },
     handleDelete(index, row) {
