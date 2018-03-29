@@ -4,12 +4,17 @@
     <!--1、layout24列布局-->
     <el-row>
       <el-col :span="24">
-        <h2>事件</h2>
+        <h2 @mouseover="handleEnter('划过标题栏', $event)" @mouseout="handleEnter('划出标题栏1111', $event)" class="demoh1">事件</h2>
+        <h1 @mouseenter="handleEnter('划过标题栏h1', $event)" @mouseleave="handleEnter('划出划出划出', $event)" class="demoh1">大事件1</h1>
+        <h1 @mousedown="handleEnter('鼠标按下标题栏h1', $event)" @mouseup="handleEnter('鼠标松开松开松开', $event)" class="demoh1">大事件2</h1>
+        <input type="text" @keydown="handleEdit($event)" placeholder="键盘事件">
+        <input type="text" @keyup="handleEdit($event)" placeholder="按键松开事件">
+        <input type="text" @keydown.enter="handleEnter('我是回车键触发的', $event)" placeholder="回车事件">
         <!-- 获取事件对象$event传参 -->
         <el-button type="primary" icon="el-icon-edit" @click="handleEdit($event)">点击我</el-button>
 
 
-        <el-button type="primary" icon="el-icon-share"></el-button>
+        <el-button type="primary" icon="el-icon-share" @mouseover="handleEnter('划过分享按钮', $event)">share</el-button>
         <el-button type="primary" icon="el-icon-delete"></el-button>
         <el-button type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button>
         <el-col :span="4">
@@ -33,6 +38,21 @@
         </div>
       </el-col>
     </el-row>
+
+
+    <div @mouseover="overShow" @mouseout="outHide"> 
+      <el-menu>
+        <el-submenu>
+          <template slot="title"><i class="el-icon-document"></i>
+            <span :class="{show:showText,hide:hideText}">批次信息</span>
+          </template>
+          <el-menu-item>全部批次信息查看</el-menu-item>
+          <el-menu-item>接受中批次信息查看</el-menu-item>
+          <el-menu-item>审核中批次信息查看</el-menu-item>
+          <el-menu-item>已完成批次信息查看</el-menu-item>
+        </el-submenu>
+      </el-menu>
+    </div>
   </div>
 </template>
 
@@ -48,6 +68,8 @@ export default {
         },
         flagShowSearch: false,
         searchStyle: {searchWrapHide: !this.flagShowSearch, searchWrap: this.flagShowSearch},
+        showText: false,
+        hideText: true
     }
   },
   methods: {
@@ -58,6 +80,10 @@ export default {
       }
     },
     handleEdit(event) {
+      console.log(event.code);   // code是键盘上的字母(大写)前面加个key,如点了a，显示KeyA
+      console.log(event.key);   // key是键盘上的字母
+      console.log(event.keyCode);  // 小驼峰的keyCode才是有效的属性
+      console.log(event);
       console.log(event.target);
       console.log(event.type);
       console.log(event.offsetX);
@@ -76,9 +102,21 @@ export default {
       });
     },
     showName(event) {
+      console.log(event);
+    },
+    handleEnter(str, event) {
+      // alert(str);
+      console.log(str);
       console.log(event.target);
       console.log(event);
-      // debugger
+    },
+    overShow () {
+      this.showText = !this.showText
+      this.hideText = !this.hideText
+    },
+    outHide () {
+      this.showText = !this.showText
+      this.hideText = !this.hideText
     }
   }
 }
@@ -87,6 +125,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @rcolor: red;
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
 .elementview-wrap {
   width: 100%;
   min-height: 760px;
@@ -154,5 +198,13 @@ export default {
  width: 240px;
  height: 60px;
  background: orange;
+}
+.demoh1 {
+  width: 800px;
+  height:160px;
+  background:#e3e3e3;
+  border: 1px solid orange;
+  border-radius: 6px;
+  margin-bottom: 15px;
 }
 </style>
