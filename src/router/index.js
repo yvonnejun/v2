@@ -8,6 +8,7 @@ import elementlayout2 from '@/components/elementlayout2'
 import buildtable from '@/components/buildtable'
 import usermanage from '@/components/usermanage'
 import events from '@/components/events'
+import attr from '@/components/attr'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/events',
       name: 'events',
       component: events
+    },
+    {
+      path: '/attr',
+      name: 'attr',
+      component: attr
     },
   ]
 })
