@@ -9,6 +9,8 @@ import buildtable from '@/components/buildtable'
 import usermanage from '@/components/usermanage'
 import events from '@/components/events'
 import attr from '@/components/attr'
+import express from '@/components/express'
+import axios from '@/components/axios'
 
 Vue.use(Router)
 
@@ -58,6 +60,16 @@ export default new Router({
       path: '/attr',
       name: 'attr',
       component: attr
+    },
+    {
+      path: '/express',
+      name: 'express',
+      component: express
+    },
+    {
+      path: '/axios',
+      name: 'axios',
+      component: axios
     },
   ]
 })
