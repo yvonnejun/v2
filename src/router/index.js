@@ -11,6 +11,7 @@ import events from '@/components/events'
 import attr from '@/components/attr'
 import express from '@/components/express'
 import axios from '@/components/axios'
+import baiduSearchbar from '@/components/baidu-searchbar'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ export default new Router({
       path: '/axios',
       name: 'axios',
       component: axios
+    },
+    {
+      path: '/baidu-searchbar',
+      name: 'baiduSearchbar',
+      component: baiduSearchbar
     },
   ]
 })
