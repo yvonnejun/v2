@@ -16,8 +16,8 @@ export default {
       msg: 'Hello world'
     }
   },
-  mount () { // 生命周期:初始加载
-    console.log(this.$route)
+  mounted () { // 生命周期:初始加载
+    // console.log(this.$route)
   },
   watch: {
     $route: {

@@ -1,13 +1,17 @@
 <template>
   <div class="attr-wrap">
     <!-- vue：axios示例 -->  
-
+    <el-button
+      type="primary"
+      @click="send">
+      服务方式
+    </el-button>  
     <!-- loading表格 -->
     <el-table
       v-loading="loading2"
       element-loading-text="拼命加载中"
       element-loading-spinner="el-icon-loading"
-      element-loading-background="rgba(92, 92, 92, 0.7)"
+      element-loading-background="rgba(192, 192, 192, 0.6)"
       :data="tableData"
       style="width: 100%">
       <el-table-column
@@ -29,43 +33,33 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default { 
   name: 'events',
   data () {
      /*data和return之间的地方--就是这里可以写一些内部方法供return里面的属性赋值调用*/
     return {
-        // tableData: [{
-        //   date: '2016-05-03',
-        //   name: '王小虎',
-        //   address: '上海市普陀区金沙江路 1518 弄'
-        // }, {
-        //   date: '2016-05-02',
-        //   name: '王小虎',
-        //   address: '上海市普陀区金沙江路 1518 弄'
-        // }, {
-        //   date: '2016-05-04',
-        //   name: '王小虎',
-        //   address: '上海市普陀区金沙江路 1518 弄'
-        // }],
         tableData: [],
         loading2: true
       }
   },
   methods: {
-    send() {
-      axios({
+    send () {
+      console.log(this.$api);
+      this.axios({
           method:"get",
-          url:'/static/mock/users.json',
+          // url:'/static/mock/users/users.json',
+          url: this.$api.API.USERS.getUsers,
           params:{
               // firstName:"Fred",
               // lastName:"Flintstone"
           }
       }).then(res => {
         console.log(res);
-        this.$data.tableData = res;
-        setTimeout(() => {
+        setTimeout(() => {  
           this.$data.loading2 = false;
-        }, 1000);
+          this.$data.tableData = res.data;
+        }, 500);
         // this.$data.loading2 = false;
       }).catch(err => {
         debugger
@@ -73,10 +67,24 @@ export default {
       });
     }
   },
-  mounted() { // 生命周期--DOM加载后
-    // setTimeout(() => {
-    //   this.$data.loading2 = false;
-    // }, 2000);
+  created () {
+    // console.log(this.$api);
+  },
+  mounted () { // 生命周期--DOM加载后
+    Vue.nextTick(() => {
+      // console.log(this.$api);
+      const params = {};
+      // this.$api.ajax('/static/mock/users/users.json', 'get', params).then(res => {
+      this.$api.ajax(this.$api.API.USERS.getUsers, 'get', params).then(res => {
+        console.log(res.data);
+         setTimeout(() => {  
+            this.$data.loading2 = false;
+            this.$data.tableData = res.data;
+          }, 500);
+      }).catch(err => {
+        console.log(err);
+      });
+    });
   }
 }
 </script>
