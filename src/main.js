@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import VueResource from 'vue-resource'
+// import VueResource from 'vue-resource' // 要屏蔽掉这个插件，否则报错，$http不存在
 import Element from 'element-ui'
 import $api from './api/apiconfig'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -16,7 +16,7 @@ import './assets/less/common.less'
 Vue.config.productionTip = false
 Vue.use(Element)  // 全局注册elementui
 Vue.use(VueAxios,axios)  
-Vue.use(VueResource)  
+// Vue.use(VueResource)  /
 
 
 /* eslint-disable no-new */

@@ -12,6 +12,9 @@ import attr from '@/components/attr'
 import express from '@/components/express'
 import axios from '@/components/axios'
 import baiduSearchbar from '@/components/baidu-searchbar'
+import watch from '@/components/watch'
+import set from '@/components/set'
+import deleteVue from '@/components/delete-vue'
 
 Vue.use(Router)
 
@@ -76,6 +79,21 @@ export default new Router({
       path: '/baidu-searchbar',
       name: 'baiduSearchbar',
       component: baiduSearchbar
+    },
+    {
+      path: '/watch',
+      name: 'watch',
+      component: watch
+    },
+    {
+      path: '/set',
+      name: 'set',
+      component: set
+    },
+    {
+      path: '/delete-vue',
+      name: 'deleteVue',
+      component: deleteVue
     },
   ]
 })

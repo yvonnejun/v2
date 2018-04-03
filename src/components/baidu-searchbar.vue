@@ -20,33 +20,32 @@ export default {
   },
   methods: {
     sendJSONP () {
-        // this.$http.jsonp('https://sug.so.360.cn/suggest?callback=infoget&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=', {
-        this.$http.jsonp('https://sug.so.360.cn/suggest', {
-            params: {
-                word: 'a'
-            }
-        }).then(res => {
-            console.log(res);
-        });
+        // this.$http.jsonp('https://sug.so.360.cn/suggest', {
+        //     params: {
+        //         word: 'a'
+        //     }
+        // }).then(res => {
+        //     console.log(res);
+        // });
     }
   },
   created () {
 
   },
   mounted () {
-    this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=10', {}, {
-        headers: {
+    // this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=10', {}, {
+    //     headers: {
 
-        },
-        emulateJSON: true
-    }).then(function(response) {
-        // 这里是处理正确的回调
-        this.articles = response.data.subjects
+    //     },
+    //     emulateJSON: true
+    // }).then(function(response) {
+    //     // 这里是处理正确的回调
+    //     this.articles = response.data.subjects
 
-    }, function(response) {
-        // 这里是处理错误的回调
-        console.log(response)
-    });
+    // }, function(response) {
+    //     // 这里是处理错误的回调
+    //     console.log(response)
+    // });
   }
 }
 </script>
