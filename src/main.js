@@ -20,11 +20,12 @@ Vue.use(VueAxios,axios)
 
 
 /* eslint-disable no-new */
-new Vue({
+window.vm = new Vue({
   el: '#app',
   router,
   components: { App },
   template: '<App/>'
 })
 Vue.prototype.$api = $api;
+// window.vm = vm;
 

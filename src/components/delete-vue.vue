@@ -1,10 +1,11 @@
 <template>
   <div class="content-wrap">
-    <p>{{articles}}</p>
+    <h1>{{articles.title}}</h1>
+    <p>{{articles.author}}</p>
     <el-button
     type="primary"
-    @click="changeArticle">
-    computedPro
+    @click="doDelete">
+    删除子属性
     </el-button>  
   </div>
 </template>
@@ -15,12 +16,19 @@ export default {
   data () {
      /*data和return之间的地方--就是这里可以写一些内部方法供return里面的属性赋值调用*/
     return {
-      articles: '123'
+      articles: {
+        title: '这篇文章',
+        author: 'junyang9'
+      }
     }
   },
   methods: {
-    changeArticle () {
-
+    doDelete () {
+      if (this.articles.title) {
+        this.$delete(this.articles, 'title');
+      } else {
+        this.$set(this.articles, 'title', '文章开头');
+      }
     }
   },
   created () {

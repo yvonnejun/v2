@@ -15,6 +15,8 @@ import baiduSearchbar from '@/components/baidu-searchbar'
 import watch from '@/components/watch'
 import set from '@/components/set'
 import deleteVue from '@/components/delete-vue'
+import computed from '@/components/computed'
+import filter from '@/components/filter'
 
 Vue.use(Router)
 
@@ -94,6 +96,16 @@ export default new Router({
       path: '/delete-vue',
       name: 'deleteVue',
       component: deleteVue
+    },
+    {
+      path: '/computed',
+      name: 'computed',
+      component: computed
+    },
+    {
+      path: '/filter',
+      name: 'filter',
+      component: filter
     },
   ]
 })

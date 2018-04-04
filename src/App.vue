@@ -17,11 +17,14 @@ export default {
     }
   },
   mounted () { // 生命周期:初始加载
-    // console.log(this.$route)
+    console.log(this.$route)
   },
   watch: {
-    $route: {
-      // console.log(new.path);
+    $route (to, from) {
+        // console.log(to)
+        console.log(to.path)
+        // console.log(from)
+        console.log(from.path)
     }
   }
 }
