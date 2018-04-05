@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import header from '@/components/header'
 import HelloWorld from '@/components/HelloWorld'
 import home from '@/components/home'
 import elementview from '@/components/elementview'
@@ -26,6 +27,11 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/header',
+      name: 'header',
+      component: header
     },
     {
       path: '/home',

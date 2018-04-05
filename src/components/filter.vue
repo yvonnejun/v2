@@ -1,6 +1,7 @@
 <template>
   <div class="content-wrap">
     <!--个位数前置加0-->
+    <div></div>
     <div>{{9 | addZero}}</div>
     <!--保留两位小数-->
     <div>{{123.31258 | number(2)}}</div>
@@ -27,12 +28,13 @@ export default {
   data () {
      /*data和return之间的地方--就是这里可以写一些内部方法供return里面的属性赋值调用*/
     return {
-      
+
     }
   },
   methods: {
     doClick () {
-      
+      var n = 1 / 99999;
+      alert(n);
     }
   },
   created () {
