@@ -22,14 +22,12 @@
 
 <script>
 export default { 
-  name: 'set',
+  name: 'headernav',
   data () {
      /*data和return之间的地方--就是这里可以写一些内部方法供return里面的属性赋值调用*/
     return {
-      user: {
-        activeIndex: '1',
-        activeIndex2: '1'
-      }
+      activeIndex: '1',
+      activeIndex2: '1'
     }
   },
   methods: {
@@ -51,7 +49,6 @@ export default {
 @rcolor: red;
 .content-wrap {
   width: 100%;
-  min-height: 760px;
 }
 
 </style>

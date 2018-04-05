@@ -1,17 +1,40 @@
 <template>
   <div class="content-wrap">
-    <p>{{user.name}}</p>
-    <p>{{user.age}}</p>
-    <el-button
-    type="primary"
-    @click="doAdd">
-    添加属性
-    </el-button>  
-    <el-button
-    type="primary"
-    @click="doUpdate">
-    修改属性
-    </el-button>  
+   <el-col :span="6">
+      <!-- <h5>默认颜色</h5> -->
+      <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" style="min-height: 720px;">
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span><router-link to="/home">home</router-link></span>
+            </template>
+            <el-menu-item-group>
+              <template slot="title">分组一</template>
+              <el-menu-item index="1-1">选项1</el-menu-item>
+              <el-menu-item index="1-2">选项2</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group title="分组2">
+              <el-menu-item index="1-3">选项3</el-menu-item>
+            </el-menu-item-group>
+            <el-submenu index="1-4">
+              <template slot="title">选项4</template>
+              <el-menu-item index="1-4-1">选项1</el-menu-item>
+            </el-submenu>
+          </el-submenu>
+        <el-menu-item index="2">
+          <i class="el-icon-menu"></i>
+          <span slot="title"><router-link to="/set">设置页</router-link></span>
+        </el-menu-item>
+        <el-menu-item index="3">
+          <i class="el-icon-document"></i>
+          <span slot="title"><router-link to="/watch">监控页</router-link></span>
+        </el-menu-item>
+        <el-menu-item index="4">
+          <i class="el-icon-setting"></i>
+          <span slot="title"><router-link to="/filter">过滤页</router-link></span>
+        </el-menu-item>
+      </el-menu>
+    </el-col>
   </div>
 </template>
 
@@ -27,18 +50,11 @@ export default {
     }
   },
   methods: {
-    doUpdate () {
-      this.user.name = 'LiLei'; // 这样对已经存在的属性直接的修改是能渲染到视图的
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
     },
-    doAdd () {
-      // this.user.age = 25; // 这样只能改变值，但不能渲染到视图
-      // this.$set(this.user, 'age', 25); // 这样写能添加属性的同时并渲染到视图上去
-      // 实战写法是像下面这样，要判断下存在与否再添加
-      if (this.user.age) {
-        this.user.age++;
-      } else {
-        this.$set(this.user, 'age', 25);
-      }
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     }
   },
   created () {
@@ -55,7 +71,6 @@ export default {
 @rcolor: red;
 .content-wrap {
   width: 100%;
-  min-height: 760px;
 }
 
 </style>
