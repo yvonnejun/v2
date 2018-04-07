@@ -10,6 +10,7 @@ import Element from 'element-ui'
 import $api from './api/apiconfig'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/reset.css'
+import './assets/css/animate.css'
 import './assets/less/common.less'
 
 

@@ -14,7 +14,9 @@
       <router-link to="/home">主页</router-link>
     </div> -->
     <div style="float:left; width: calc(100% - 235px); margin-left: 235px; position: relative; top: -720px;">
-      <router-view/>
+      <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+        <router-view/>
+      </transition>
     </div>
   </div>
 </template>

@@ -1,6 +1,8 @@
 <template>
   <div class="regist-wrap">
     <!-- elementui示例 -->
+    <!-- 查询参数形式传参 -->
+    <h2>{{$route.query}}</h2>
     <!--1、layout24列布局-->
     <!-- 添加用户表单 -->
     <el-row>
@@ -64,8 +66,11 @@ export default {
     };
     return {
       form: {
-        age: '',
-        pass: '',
+        // name: '',
+        // pass: '',
+        // checkPass: ''
+        name: this.$route.query.name, // 在vue单组件文件中，所有实例都是用this来调用
+        pass: this.$route.query.pwd,
         checkPass: ''
       },
       formLabelWidth: '80px',

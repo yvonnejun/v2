@@ -67,7 +67,7 @@ export default new Router({
       component: usermanage,
       children: [
         {
-          path: 'login',
+          path: 'login/:username/:password',
           name: 'login',
           component: login,
         },

@@ -2,7 +2,9 @@
   <div class="login-wrap">
     <!-- elementui示例 -->
     <!--1、layout24列布局-->
-    <!-- 添加用户表单 -->
+    <!-- rest风格传参 -->
+    <h2>{{$route.params}}</h2>
+    <!-- 用户登录 -->
     <el-row>
       <el-col :span="18">
         <h2>用户登录</h2>
@@ -14,6 +16,7 @@
                 { required: true, message: '用户名不能为空'},
               ]">
               <el-input v-model="form.name" ></el-input>
+              <!-- <el-input v-model="$route.params.username" ></el-input> -->
           </el-form-item>
           <el-form-item 
               label="密码"
@@ -37,6 +40,7 @@
 </template>
 
 <script>
+import router from '../router'
 var that,
     rowIndex = -1,
     editFormClone = {};
@@ -64,9 +68,10 @@ export default {
     };
     return {
       form: {
-        age: '',
-        pass: '',
-        checkPass: ''
+        // name: '',
+        name: this.$route.params.username, // 在vue单组件文件中，所有实例都是用this来调用
+        // pass: '',
+        pass: this.$route.params.password,
       },
       formLabelWidth: '80px',
       rules2: {
