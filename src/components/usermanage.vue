@@ -2,8 +2,9 @@
   <div class="usermanage-wrap">
     <!-- elementui示例 -->
     <!--1、layout24列布局-->
+    <!-- 添加用户表单 -->
     <el-row>
-      <el-col :span="24">
+      <el-col :span="18" >
         <h2>添加用户</h2>
         <el-form ref="form" :model="form" label-width="80px" label-position="right">
             <el-form-item 
@@ -40,6 +41,7 @@
               <el-button @click="resetForm('form')">取消</el-button>
             </el-form-item>
         </el-form>
+        <!-- 3个提示框 -->
         <el-alert
           title="添加成功"
           class="success-alert"
@@ -69,8 +71,9 @@
 
       </el-col>
     </el-row>
+    <!-- 用户列表 -->
     <el-row>
-      <el-col :span="24">
+      <el-col :span="18">
         <el-table
             :data="tableData"
             style="width: 100%">
@@ -109,7 +112,9 @@
         </el-table>
       </el-col>
     </el-row>
-    
+    <!-- 用户登录等子路由模块 -->
+    <router-view></router-view>
+    <!-- 编辑模态框 -->
     <el-dialog title="用户信息" :visible.sync="dialogFormVisible">
       <el-form :model="editForm">
         <el-form-item 
@@ -241,9 +246,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @rcolor: red;
-.elementview-wrap {
+.usermanage-wrap {
   width: 100%;
-  min-height: 760px;
+  min-height: 660px;
 }
 .success-alert {
   position: absolute;

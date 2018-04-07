@@ -13,7 +13,7 @@
       <router-link to="/set">设置页</router-link>
       <router-link to="/home">主页</router-link>
     </div> -->
-    <div>
+    <div style="float:left; width: calc(100% - 235px); margin-left: 235px; position: relative; top: -720px;">
       <router-view/>
     </div>
   </div>

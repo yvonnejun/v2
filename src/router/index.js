@@ -9,6 +9,8 @@ import elementlayout from '@/components/elementlayout'
 import elementlayout2 from '@/components/elementlayout2'
 import buildtable from '@/components/buildtable'
 import usermanage from '@/components/usermanage'
+import login from '@/components/login'
+import regist from '@/components/regist'
 import events from '@/components/events'
 import attr from '@/components/attr'
 import express from '@/components/express'
@@ -62,7 +64,19 @@ export default new Router({
     {
       path: '/usermanage',
       name: 'usermanage',
-      component: usermanage
+      component: usermanage,
+      children: [
+        {
+          path: 'login',
+          name: 'login',
+          component: login,
+        },
+        {
+          path: 'regist',
+          name: 'regist',
+          component: regist,
+        }
+      ]
     },
     {
       path: '/events',

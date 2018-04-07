@@ -1,5 +1,5 @@
 <template>
-  <div class="content-wrap">
+  <div class="top-wrap">
      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
       <el-menu-item index="1"><router-link to="/set">设置页</router-link></el-menu-item>
       <el-submenu index="2">
@@ -47,7 +47,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @rcolor: red;
-.content-wrap {
+.top-wrap {
   width: 100%;
 }
 
