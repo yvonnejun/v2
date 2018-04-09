@@ -21,6 +21,7 @@ import set from '@/components/set'
 import deleteVue from '@/components/delete-vue'
 import computed from '@/components/computed'
 import filter from '@/components/filter'
+import elementuploadfile from '@/components/elementuploadfile'
 
 Vue.use(Router)
 
@@ -127,6 +128,11 @@ export default new Router({
       path: '/filter',
       name: 'filter',
       component: filter
+    },
+    {
+      path: '/elementuploadfile',
+      name: 'elementuploadfile',
+      component: elementuploadfile
     },
   ]
 })

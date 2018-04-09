@@ -36,6 +36,12 @@
             >
               <el-input v-model.email="form.email" auto-complete="off"></el-input>
             </el-form-item>
+            <el-form-item 
+              label="用户头像"
+            >
+              <elementuploadfile></elementuploadfile>
+              <datedicker></datedicker>
+            </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="onSubmit('form')">添加用户</el-button>
               <el-button @click="resetForm('form')">取消</el-button>
@@ -157,6 +163,8 @@
 </template>
 
 <script>
+import elementuploadfile from './elementuploadfile.vue'
+import datedicker from './datedicker.vue'
 var that,
     rowIndex = -1,
     editFormClone = {};
@@ -182,6 +190,10 @@ export default {
       deleteShow: false,
       tableData: []
     }
+  },
+  components: {
+    elementuploadfile,
+    datedicker,
   },
   methods: {
     onSubmit(formName) {

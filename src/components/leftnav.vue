@@ -42,6 +42,10 @@
           <i class="el-icon-setting"></i>
           <span slot="title" @click="push">计算属性管理</span>
         </el-menu-item>
+        <el-menu-item index="4">
+          <i class="el-icon-document"></i>
+          <span slot="title"><router-link to="/elementuploadfile">文件上传管理</router-link></span>
+        </el-menu-item>
       </el-menu>
     </el-col>
   </div>
