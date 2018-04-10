@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
-    <!--{{msg}}-->
     <!-- 顶部top栏 -->
     <headernav></headernav>
     <!-- 侧边栏导航 -->
     <leftnav></leftnav>
-    <!-- 定义跳转链接 -->
-    <!-- <div>
-      <router-link to="/events">事件页</router-link>
-      <router-link to="/attr">属性页</router-link>
-      <router-link to="/set">设置页</router-link>
-      <router-link to="/home">主页</router-link>
-    </div> -->
     <div style="float:left; width: calc(100% - 235px); margin-left: 235px; position: relative; top: -720px;">
+      指令输入框：<el-input placeholder="请输入内容" v-autoClick></el-input>
+      指令输入框：<input placeholder="请输入内容" v-autoFocus></input>
       <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
         <router-view/>
       </transition>

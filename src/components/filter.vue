@@ -12,7 +12,7 @@
     <!--保留4位小数-->
     <div>{{123.31258 | numberFour(4)}}</div>
     <!--日期格式化-->
-    <div>{{1402233166999 | formatDateTime}}</div>
+    <div v-colorBlue>{{1402233166999 | formatDateTime}}</div>
     <el-button
     type="primary"
     @click="doClick">
@@ -35,6 +35,13 @@ export default {
     doClick () {
       var n = 1 / 99999;
       alert(n);
+    }
+  },
+  directives: {
+    colorBlue: (el, binding) => {
+      console.log(el);
+      console.log(binding);
+      el.style.color = 'blue'
     }
   },
   created () {

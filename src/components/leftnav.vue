@@ -15,7 +15,7 @@
             <el-menu-item index="1-2"><router-link to="/usermanage/regist?name=tom&pwd=111111">用户注册</router-link></el-menu-item>
           </el-menu-item-group>
           <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
+            <el-menu-item index="1-3"><router-link to="/axios">axios</router-link></el-menu-item>
           </el-menu-item-group>
           <el-submenu index="1-4">
             <template slot="title">选项4</template>
@@ -42,9 +42,13 @@
           <i class="el-icon-setting"></i>
           <span slot="title" @click="push">计算属性管理</span>
         </el-menu-item>
-        <el-menu-item index="4">
+        <el-menu-item index="6">
           <i class="el-icon-document"></i>
           <span slot="title"><router-link to="/elementuploadfile">文件上传管理</router-link></span>
+        </el-menu-item>
+        <el-menu-item index="7">
+          <i class="el-icon-document"></i>
+          <span slot="title"><router-link to="/drag">拖拽管理</router-link></span>
         </el-menu-item>
       </el-menu>
     </el-col>

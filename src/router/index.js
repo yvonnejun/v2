@@ -22,6 +22,7 @@ import deleteVue from '@/components/delete-vue'
 import computed from '@/components/computed'
 import filter from '@/components/filter'
 import elementuploadfile from '@/components/elementuploadfile'
+import drag from '@/components/drag'
 
 Vue.use(Router)
 
@@ -133,6 +134,11 @@ export default new Router({
       path: '/elementuploadfile',
       name: 'elementuploadfile',
       component: elementuploadfile
+    },
+    {
+      path: '/drag',
+      name: 'drag',
+      component: drag
     },
   ]
 })
