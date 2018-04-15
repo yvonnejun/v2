@@ -19,6 +19,18 @@ export default {
 
     }
   },
+  computed: {
+    arr2: function () {
+      var temp = [];
+      // 或者用箭头函数
+      this.arr.forEach( val => {
+        if (val.indexOf(self.name) != -1) {
+          temp.push(val);
+        }
+      });
+      return temp;
+    }
+  },
   methods: {
     doClick () {
 

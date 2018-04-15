@@ -50,6 +50,14 @@
           <i class="el-icon-document"></i>
           <span slot="title"><router-link to="/drag">拖拽管理</router-link></span>
         </el-menu-item>
+        <el-menu-item index="8">
+          <i class="el-icon-document"></i>
+          <span slot="title"><router-link to="/animate-vue">Vue自带动画管理</router-link></span>
+        </el-menu-item>
+        <el-menu-item index="9">
+          <i class="el-icon-document"></i>
+          <span slot="title"><router-link to="/animate-vue2">Vue自带动画管理2</router-link></span>
+        </el-menu-item>
       </el-menu>
     </el-col>
   </div>

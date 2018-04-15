@@ -16,6 +16,8 @@ import attr from '@/components/attr'
 import express from '@/components/express'
 import axios from '@/components/axios'
 import baiduSearchbar from '@/components/baidu-searchbar'
+import animateVue from '@/components/animate-vue'
+import animateVue2 from '@/components/animate-vue2'
 import watch from '@/components/watch'
 import set from '@/components/set'
 import deleteVue from '@/components/delete-vue'
@@ -139,6 +141,16 @@ export default new Router({
       path: '/drag',
       name: 'drag',
       component: drag
+    },
+    {
+      path: '/animate-vue',
+      name: 'animateVue',
+      component: animateVue
+    },
+    {
+      path: '/animate-vue2',
+      name: 'animateVue2',
+      component: animateVue2
     },
   ]
 })
