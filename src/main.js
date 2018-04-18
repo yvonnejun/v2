@@ -7,6 +7,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 // import VueResource from 'vue-resource' // 要屏蔽掉这个插件，否则报错，$http不存在
 import Element from 'element-ui'
+import $ from 'jquery'
+import echarts from "echarts"
 import $api from './api/apiconfig'
 import './directives/directive'
 import 'element-ui/lib/theme-chalk/index.css'

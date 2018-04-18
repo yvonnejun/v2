@@ -26,6 +26,8 @@ import filter from '@/components/filter'
 import elementuploadfile from '@/components/elementuploadfile'
 import drag from '@/components/drag'
 import myHello from '@/components/my-hello'
+import ebar from '@/components/ebar'
+import ebar2 from '@/components/ebar2'
 
 Vue.use(Router)
 
@@ -157,6 +159,16 @@ export default new Router({
       path: '/my-hello',
       name: 'myHello',
       component: myHello
+    },
+    {
+      path: '/ebar',
+      name: 'ebar',
+      component: ebar
+    },
+    {
+      path: '/ebar2',
+      name: 'ebar2',
+      component: ebar2
     },
   ]
 })

@@ -16,6 +16,7 @@
       </el-submenu>
       <el-menu-item index="3"><router-link to="/filter">过滤页</router-link></el-menu-item>
       <el-menu-item index="4"><router-link to="/watch">监控页</router-link></el-menu-item>
+      <el-menu-item index="5"><router-link to="/ebar2">柱状图2demo</router-link></el-menu-item>
     </el-menu>
   </div>
 </template>
