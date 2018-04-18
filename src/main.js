@@ -13,10 +13,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/reset.css'
 import './assets/css/animate.css'
 import './assets/less/common.less'
+import Loading from './components/loading' // 自定义全局组件导入
 
 Vue.config.productionTip = false
 Vue.use(Element)  // 全局注册elementui
-Vue.use(VueAxios,axios)  
+Vue.use(VueAxios,axios) 
+Vue.use(Loading)   //必须有install 
 
 /* eslint-disable no-new */
 window.vm = new Vue({
@@ -26,5 +28,4 @@ window.vm = new Vue({
   template: '<App/>'
 })
 Vue.prototype.$api = $api;
-// window.vm = vm;
 
