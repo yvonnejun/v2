@@ -25,6 +25,7 @@ import computed from '@/components/computed'
 import filter from '@/components/filter'
 import elementuploadfile from '@/components/elementuploadfile'
 import drag from '@/components/drag'
+import myHello from '@/components/my-hello'
 
 Vue.use(Router)
 
@@ -151,6 +152,11 @@ export default new Router({
       path: '/animate-vue2',
       name: 'animateVue2',
       component: animateVue2
+    },
+    {
+      path: '/my-hello',
+      name: 'myHello',
+      component: myHello
     },
   ]
 })

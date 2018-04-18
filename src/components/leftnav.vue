@@ -58,6 +58,10 @@
           <i class="el-icon-document"></i>
           <span slot="title"><router-link to="/animate-vue2">Vue自带动画管理2</router-link></span>
         </el-menu-item>
+        <el-menu-item index="9">
+          <i class="el-icon-document"></i>
+          <span slot="title"><router-link to="/my-hello">父子组件之间传值demo</router-link></span>
+        </el-menu-item>
       </el-menu>
     </el-col>
   </div>
