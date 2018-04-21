@@ -28,6 +28,8 @@ import drag from '@/components/drag'
 import myHello from '@/components/my-hello'
 import ebar from '@/components/ebar'
 import ebar2 from '@/components/ebar2'
+import epie1 from '@/components/epie1'
+import epie2 from '@/components/epie2'
 
 Vue.use(Router)
 
@@ -169,6 +171,16 @@ export default new Router({
       path: '/ebar2',
       name: 'ebar2',
       component: ebar2
+    },
+    {
+      path: '/epie1',
+      name: 'epie1',
+      component: epie1
+    },
+    {
+      path: '/epie2',
+      name: 'epie2',
+      component: epie2
     },
   ]
 })
