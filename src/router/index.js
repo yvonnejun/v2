@@ -29,8 +29,9 @@ import myHello from '@/components/my-hello'
 import ebar from '@/components/ebar'
 import ebar2 from '@/components/ebar2'
 import ebar3 from '@/components/ebar3'
-import epie1 from '@/components/epie1'
 import tableViticalScrollbar from '@/components/table-viticalScrollbar'
+import epie1 from '@/components/epie1'
+import epie2 from '@/components/epie2'
 
 Vue.use(Router)
 
@@ -187,6 +188,11 @@ export default new Router({
       path: '/epie1',
       name: 'epie1',
       component: epie1
+    },
+    {
+      path: '/epie2',
+      name: 'epie2',
+      component: epie2
     }
   ]
 })
