@@ -16,7 +16,21 @@
       </el-submenu>
       <el-menu-item index="3"><router-link to="/filter">过滤页</router-link></el-menu-item>
       <el-menu-item index="4"><router-link to="/watch">监控页</router-link></el-menu-item>
-      <el-menu-item index="5"><router-link to="/ebar2">柱状图2demo</router-link></el-menu-item>
+      <el-submenu index="5">
+        <template slot="title"><router-link to="/home">Echarts图表</router-link></template>
+        <el-submenu index="5-4">
+          <template slot="title">柱状图</template>
+          <el-menu-item index="5-4-1"><router-link to="/ebar2">柱状图2demo</router-link></el-menu-item>
+          <el-menu-item index="5-4-2"><router-link to="/ebar3">柱状图3demo</router-link></el-menu-item>
+        </el-submenu>
+        <!-- 注意这里的索引一定要区分开来，否则点上面的导航栏下面的也一起跑出来 -->
+        <el-submenu index="5-5">
+          <template slot="title">饼图</template>
+          <el-menu-item index="5-5-1"><router-link to="/epie1">圆环图demo</router-link></el-menu-item>
+          <el-menu-item index="5-5-2"><router-link to="/epie2">圆环图2demo</router-link></el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="6"><router-link to="//table-viticalScrollbar">列表页-带竖直滚动条</router-link></el-menu-item>
     </el-menu>
   </div>
 </template>

@@ -49,6 +49,7 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
     "jQuery": "^1.7.4",
+    "jquery": "^2.2.3",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
     "node-notifier": "^5.1.2",

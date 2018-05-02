@@ -28,6 +28,9 @@ import drag from '@/components/drag'
 import myHello from '@/components/my-hello'
 import ebar from '@/components/ebar'
 import ebar2 from '@/components/ebar2'
+import ebar3 from '@/components/ebar3'
+import epie1 from '@/components/epie1'
+import tableViticalScrollbar from '@/components/table-viticalScrollbar'
 
 Vue.use(Router)
 
@@ -161,6 +164,11 @@ export default new Router({
       component: myHello
     },
     {
+      path: '/table-viticalScrollbar',
+      name: 'tableViticalScrollbar',
+      component: tableViticalScrollbar
+    },
+    {
       path: '/ebar',
       name: 'ebar',
       component: ebar
@@ -170,5 +178,15 @@ export default new Router({
       name: 'ebar2',
       component: ebar2
     },
+    {
+      path: '/ebar3',
+      name: 'ebar3',
+      component: ebar3
+    },
+    {
+      path: '/epie1',
+      name: 'epie1',
+      component: epie1
+    }
   ]
 })
