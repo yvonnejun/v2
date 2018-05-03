@@ -16,6 +16,7 @@ import attr from '@/components/attr'
 import express from '@/components/express'
 import axios from '@/components/axios'
 import baiduSearchbar from '@/components/baidu-searchbar'
+import layuiCarousel from '@/components/layui-carousel'
 import animateVue from '@/components/animate-vue'
 import animateVue2 from '@/components/animate-vue2'
 import watch from '@/components/watch'
@@ -168,6 +169,11 @@ export default new Router({
       path: '/table-viticalScrollbar',
       name: 'tableViticalScrollbar',
       component: tableViticalScrollbar
+    },
+    {
+      path: '/layui-carousel',
+      name: 'layuiCarousel',
+      component: layuiCarousel
     },
     {
       path: '/ebar',
