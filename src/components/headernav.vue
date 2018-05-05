@@ -32,6 +32,7 @@
       </el-submenu>
       <el-menu-item index="6"><router-link to="/table-viticalScrollbar">列表页-带竖直滚动条</router-link></el-menu-item>
       <el-menu-item index="7"><router-link to="/layui-carousel">layui-demo页</router-link></el-menu-item>
+      <el-menu-item index="7"><router-link to="/carousel1">carousel1-带缩略图的轮播图页</router-link></el-menu-item>
     </el-menu>
   </div>
 </template>

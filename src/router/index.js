@@ -33,6 +33,7 @@ import ebar3 from '@/components/ebar3'
 import tableViticalScrollbar from '@/components/table-viticalScrollbar'
 import epie1 from '@/components/epie1'
 import epie2 from '@/components/epie2'
+import carousel1 from '@/components/carousel1'
 
 Vue.use(Router)
 
@@ -174,6 +175,11 @@ export default new Router({
       path: '/layui-carousel',
       name: 'layuiCarousel',
       component: layuiCarousel
+    },
+    {
+      path: '/carousel1',
+      name: 'carousel1',
+      component: carousel1
     },
     {
       path: '/ebar',
