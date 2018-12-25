@@ -7,8 +7,8 @@
     <div style="float:left; width: calc(100% - 235px); margin-left: 235px; position: relative; top: -720px;">
       <!--全局组件loading的调用-->
       <!-- <Loading></Loading> -->
-      指令输入框：<el-input placeholder="请输入内容" v-autoClick></el-input>
-      指令输入框：<input placeholder="请输入内容" v-autoFocus></input>
+      <!-- 指令输入框：<el-input placeholder="请输入内容" v-autoClick></el-input>
+      指令输入框：<input placeholder="请输入内容" v-autoFocus></input> -->
       <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
         <router-view/>
       </transition>
@@ -26,7 +26,7 @@ export default {
   data () {
     return {
       msg: 'Hello world',
-      componentsName: 'greenbublle'
+      componentsName: 'greenbublle',
     }
   },
   components: {
@@ -34,6 +34,9 @@ export default {
     leftnav,
   },
   methods: {
+ 
+  },
+  computed: {
 
   },
   mounted () { // 生命周期:初始加载

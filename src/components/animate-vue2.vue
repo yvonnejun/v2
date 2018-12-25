@@ -4,11 +4,10 @@
     <transition-group 
       enter-active-class="animated bounceInLeft"
       leave-active-class="animated bounceOutRight">
-      <p v-for="(item, index) in arr2" :key="index">
+      <p v-for="(item, index) in arr2">
         <span>{{item}}</span>
       </p>
     </transition-group>
-  
   </div>
 </template>
 

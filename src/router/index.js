@@ -35,6 +35,10 @@ import epie1 from '@/components/epie1'
 import epie2 from '@/components/epie2'
 import carousel1 from '@/components/carousel1'
 
+import baseList from '@/components/list/base-list'
+import expandGrid from '@/components/list/expand-grid'
+import pagerList from '@/components/list/pager-list'
+
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +53,13 @@ export default new Router({
     //   name: 'headernav',
     //   component: headernav
     // },
+    //下面是require=>加载方式，不用写上面的import 导入模块
+    // {
+      //司法厅 网上预约安置帮扶服务
+  //     path: "/sft/wsyyazbfService",
+  //     name: "wsyyazbfService",
+  //     component: resolve => require(['@/pages/sft/wsyyazbfService'], resolve)
+  // },
     {
       path: '/home',
       name: 'home',
@@ -205,6 +216,16 @@ export default new Router({
       path: '/epie2',
       name: 'epie2',
       component: epie2
+    },
+    {
+      path: '/base-list',
+      name: 'baseList',
+      component: baseList
+    },
+    {
+      path: '/pager-list',
+      name: 'pagerList',
+      component: pagerList
     }
   ]
 })
